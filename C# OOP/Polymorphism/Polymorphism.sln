@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Vehicles\Vehicles.csproj", "{7D19EC8F-1602-4EE0-8F9B-6E3CBFB0DDCF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raiding", "Raiding\Raiding.csproj", "{C6DA06B1-8B2F-49B4-8F12-86594A73C147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildFarm", "WildFarm\WildFarm.csproj", "{AE351614-A0C7-421C-AB28-624097DB872C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D19EC8F-1602-4EE0-8F9B-6E3CBFB0DDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D19EC8F-1602-4EE0-8F9B-6E3CBFB0DDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D19EC8F-1602-4EE0-8F9B-6E3CBFB0DDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D19EC8F-1602-4EE0-8F9B-6E3CBFB0DDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6DA06B1-8B2F-49B4-8F12-86594A73C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6DA06B1-8B2F-49B4-8F12-86594A73C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6DA06B1-8B2F-49B4-8F12-86594A73C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6DA06B1-8B2F-49B4-8F12-86594A73C147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE351614-A0C7-421C-AB28-624097DB872C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE351614-A0C7-421C-AB28-624097DB872C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE351614-A0C7-421C-AB28-624097DB872C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE351614-A0C7-421C-AB28-624097DB872C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FD81131-14A9-4540-BDD6-32FA0C3D4FD4}
+	EndGlobalSection
+EndGlobal
