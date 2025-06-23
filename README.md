@@ -3,7 +3,7 @@
 ## Diploma
 
 <a href="https://softuni.bg/certificates/details/10385/7b37a5c1" target="_blank">
-    <img width="50%" height="50%" src="/Diploma-cover.PNG" alt="Practical Software Engineering"/> 
+    <img width="50%" height="50%" src="/Diploma-cover.png" alt="Practical Software Engineering"/> 
 </a>
 
 ### [Software Engineering ](https://softuni.bg/curriculum)
