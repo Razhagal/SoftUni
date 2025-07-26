@@ -1,6 +1,7 @@
 ﻿using SIS.HTTP.Common;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Headers;
+
 using System.Text;
 
 namespace SIS.HTTP.Responses
@@ -11,6 +12,13 @@ namespace SIS.HTTP.Responses
         {
             this.Headers = new HttpHeaderCollection();
             this.Content = new byte[0];
+        }
+
+        public HttpResponse(HttpResponseStatusCode statusCode)
+            : this()
+        {
+            CoreValidator.ThrowIfNull(statusCode, nameof(statusCode));
+            this.StatusCode = StatusCode;
         }
 
         public HttpResponseStatusCode StatusCode { get; set; }
