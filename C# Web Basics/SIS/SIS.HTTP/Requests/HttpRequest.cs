@@ -34,7 +34,7 @@ namespace SIS.HTTP.Requests
 
         private void ParseRequest(string requestString)
         {
-            string[] splitRequestContent = requestString.Split(GlobalConstants.HttpNewLine, StringSplitOptions.None);
+            string[] splitRequestContent = requestString.Split(new[] { GlobalConstants.HttpNewLine }, StringSplitOptions.None);
             string[] requestLine = splitRequestContent[0].Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             if (!this.IsValidRequestLine(requestLine))
@@ -72,12 +72,12 @@ namespace SIS.HTTP.Requests
         {
             foreach (var row in requestContent)
             {
-                if (row == GlobalConstants.HttpNewLine)
+                if (string.IsNullOrEmpty(row))
                 {
                     break;
                 }
 
-                string[] headerData = row.Split(':', StringSplitOptions.RemoveEmptyEntries);
+                string[] headerData = row.Split(": ", StringSplitOptions.RemoveEmptyEntries);
                 if (headerData.Length != 2)
                 {
                     throw new BadRequestException();

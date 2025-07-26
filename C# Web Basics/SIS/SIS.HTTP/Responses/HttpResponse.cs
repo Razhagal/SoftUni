@@ -18,7 +18,7 @@ namespace SIS.HTTP.Responses
             : this()
         {
             CoreValidator.ThrowIfNull(statusCode, nameof(statusCode));
-            this.StatusCode = StatusCode;
+            this.StatusCode = statusCode;
         }
 
         public HttpResponseStatusCode StatusCode { get; set; }
