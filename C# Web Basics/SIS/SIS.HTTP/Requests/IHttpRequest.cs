@@ -1,6 +1,7 @@
 ﻿using SIS.HTTP.Cookies;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Headers;
+using SIS.HTTP.Sessions;
 
 namespace SIS.HTTP.Requests
 {
@@ -19,5 +20,7 @@ namespace SIS.HTTP.Requests
         IHttpCookieCollection Cookies { get; }
 
         HttpRequestMethod RequestMethod { get; }
+
+        IHttpSession Session { get; set; }
     }
 }

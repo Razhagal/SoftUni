@@ -3,7 +3,7 @@ using SIS.HTTP.Cookies;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Exceptions;
 using SIS.HTTP.Headers;
-
+using SIS.HTTP.Sessions;
 using System.Net;
 
 namespace SIS.HTTP.Requests
@@ -35,6 +35,8 @@ namespace SIS.HTTP.Requests
         public IHttpCookieCollection Cookies { get; }
 
         public HttpRequestMethod RequestMethod { get; private set; }
+
+        public IHttpSession Session { get; set; }
 
         private void ParseRequest(string requestString)
         {
