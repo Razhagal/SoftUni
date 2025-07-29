@@ -37,16 +37,16 @@ namespace SIS.WebServer
                     Console.WriteLine($"Processing: {httpRequest.RequestMethod} {httpRequest.Path}...");
 
                     IHttpResponse httpResponse = this.HandleRequest(httpRequest);
-                    this.PrepareResponse(httpResponse);
+                    await this.PrepareResponse(httpResponse);
                 }
             }
             catch (BadRequestException e)
             {
-                this.PrepareResponse(new TextResult(e.ToString(), HttpResponseStatusCode.BadRequest));
+                await this.PrepareResponse(new TextResult(e.ToString(), HttpResponseStatusCode.BadRequest));
             }
             catch (Exception e)
             {
-                this.PrepareResponse(new TextResult(e.ToString(), HttpResponseStatusCode.InternalServerError));
+                await this.PrepareResponse(new TextResult(e.ToString(), HttpResponseStatusCode.InternalServerError));
             }
 
             this.client.Shutdown(SocketShutdown.Both);
@@ -93,10 +93,10 @@ namespace SIS.WebServer
             return this.serverRoutingTable.Get(httpRequest.RequestMethod, httpRequest.Path).Invoke(httpRequest);
         }
 
-        private void PrepareResponse(IHttpResponse httpResponse)
+        private async Task PrepareResponse(IHttpResponse httpResponse)
         {
             byte[] byteSegments = httpResponse.GetBytes();
-            this.client.Send(byteSegments, SocketFlags.None);
+            await this.client.SendAsync(byteSegments, SocketFlags.None);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SIS.HTTP.Enums;
+﻿using SIS.HTTP.Cookies;
+using SIS.HTTP.Enums;
 using SIS.HTTP.Headers;
 
 namespace SIS.HTTP.Requests
@@ -14,6 +15,8 @@ namespace SIS.HTTP.Requests
         Dictionary<string, ISet<string>> QueryData { get; }
 
         IHttpHeaderCollection Headers { get; }
+
+        IHttpCookieCollection Cookies { get; }
 
         HttpRequestMethod RequestMethod { get; }
     }

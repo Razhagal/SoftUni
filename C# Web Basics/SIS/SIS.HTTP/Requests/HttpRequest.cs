@@ -1,4 +1,5 @@
 ﻿using SIS.HTTP.Common;
+using SIS.HTTP.Cookies;
 using SIS.HTTP.Enums;
 using SIS.HTTP.Exceptions;
 using SIS.HTTP.Headers;
@@ -16,6 +17,7 @@ namespace SIS.HTTP.Requests
             this.FormData = new Dictionary<string, ISet<string>>();
             this.QueryData = new Dictionary<string, ISet<string>>();
             this.Headers = new HttpHeaderCollection();
+            this.Cookies = new HttpCookieCollection();
 
             this.ParseRequest(requestString);
         }
@@ -29,6 +31,8 @@ namespace SIS.HTTP.Requests
         public Dictionary<string, ISet<string>> QueryData { get; }
 
         public IHttpHeaderCollection Headers { get; }
+
+        public IHttpCookieCollection Cookies { get; }
 
         public HttpRequestMethod RequestMethod { get; private set; }
 
@@ -95,7 +99,18 @@ namespace SIS.HTTP.Requests
 
         private void ParseCookies()
         {
-            //To Do...
+            if (this.Headers.ContainsHeader(HttpHeader.Cookie))
+            {
+                string[] splitCookies = this.Headers.GetHeader(HttpHeader.Cookie).Value.Split(HttpCookieCollection.HttpCookieStringSeparator, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var cookie in splitCookies)
+                {
+                    string[] cookieParts = cookie.Split('=', 2, StringSplitOptions.RemoveEmptyEntries);
+                    string cookieKey = cookieParts[0];
+                    string cookieValue = cookieParts[1];
+
+                    this.Cookies.AddCookie(new HttpCookie(cookieKey, cookieValue, false));
+                }
+            }
         }
 
         private void ParseRequestParameters(string formData)

@@ -5,7 +5,7 @@ namespace SIS.HTTP.Headers
 {
     public class HttpHeaderCollection : IHttpHeaderCollection
     {
-        private readonly Dictionary<string, HttpHeader> headers;
+        private readonly IDictionary<string, HttpHeader> headers;
 
         public HttpHeaderCollection()
         {
@@ -30,7 +30,7 @@ namespace SIS.HTTP.Headers
             return this.headers.ContainsKey(key);
         }
 
-        public HttpHeader? GetHeader(string key)
+        public HttpHeader GetHeader(string key)
         {
             if (!this.ContainsHeader(key))
             {
