@@ -6,13 +6,13 @@ using SIS.HTTP.Requests;
 using SIS.HTTP.Responses;
 using SIS.HTTP.Sessions;
 
-using SIS.WebServer.Results;
-using SIS.WebServer.Routing;
+using SIS.MvcFramework.Results;
+using SIS.MvcFramework.Routing;
 
 using System.Net.Sockets;
 using System.Text;
 
-namespace SIS.WebServer
+namespace SIS.MvcFramework
 {
     public class ConnectionHandler
     {

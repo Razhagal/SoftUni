@@ -1,10 +1,10 @@
 ﻿using SIS.HTTP.Common;
-using SIS.WebServer.Routing;
+using SIS.MvcFramework.Routing;
 
 using System.Net;
 using System.Net.Sockets;
 
-namespace SIS.WebServer
+namespace SIS.MvcFramework
 {
     public class Server
     {
