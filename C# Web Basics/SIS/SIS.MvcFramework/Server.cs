@@ -1,4 +1,5 @@
 ﻿using SIS.HTTP.Common;
+using SIS.HTTP.Sessions;
 using SIS.MvcFramework.Routing;
 
 using System.Net;
@@ -13,16 +14,20 @@ namespace SIS.MvcFramework
         private readonly int port;
         private readonly TcpListener listener;
         private readonly IServerRoutingTable serverRoutingTable;
+        private readonly IHttpSessionStorage httpSessionStorage;
 
         private bool isRunning;
 
-        public Server(int port, IServerRoutingTable serverRoutingTable)
+        public Server(int port, IServerRoutingTable serverRoutingTable, IHttpSessionStorage httpSessionStorage)
         {
             CoreValidator.ThrowIfNull(serverRoutingTable, nameof(serverRoutingTable));
+            CoreValidator.ThrowIfNull(httpSessionStorage, nameof(httpSessionStorage));
 
             this.port = port;
-            this.listener = new TcpListener(IPAddress.Parse(LocalhostIpAddress), port);
             this.serverRoutingTable = serverRoutingTable;
+            this.httpSessionStorage = httpSessionStorage;
+
+            this.listener = new TcpListener(IPAddress.Parse(LocalhostIpAddress), port);
         }
 
         public void Run()
@@ -43,7 +48,7 @@ namespace SIS.MvcFramework
 
         public async Task ListenAsync(Socket client)
         {
-            ConnectionHandler connectionHandler = new ConnectionHandler(client, this.serverRoutingTable);
+            ConnectionHandler connectionHandler = new ConnectionHandler(client, this.serverRoutingTable, this.httpSessionStorage);
             await connectionHandler.ProcessRequestAsync();
         }
     }

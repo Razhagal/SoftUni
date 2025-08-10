@@ -18,14 +18,16 @@ namespace SIS.MvcFramework
     {
         private readonly Socket client;
         private readonly IServerRoutingTable serverRoutingTable;
+        private readonly IHttpSessionStorage httpSessionStorage;
 
-        public ConnectionHandler(Socket client, IServerRoutingTable serverRoutingTable)
+        public ConnectionHandler(Socket client, IServerRoutingTable serverRoutingTable, IHttpSessionStorage httpSessionStorage)
         {
             CoreValidator.ThrowIfNull(client, nameof(client));
             CoreValidator.ThrowIfNull(serverRoutingTable, nameof(serverRoutingTable));
 
             this.client = client;
             this.serverRoutingTable = serverRoutingTable;
+            this.httpSessionStorage = httpSessionStorage;
         }
 
         public async Task ProcessRequestAsync()
@@ -41,6 +43,7 @@ namespace SIS.MvcFramework
                     var sessionId = this.SetRequestSession(httpRequest);
                     IHttpResponse httpResponse = this.HandleRequest(httpRequest);
                     this.SetResponseSession(httpResponse, sessionId);
+
                     await this.PrepareResponse(httpResponse);
                 }
             }
@@ -110,12 +113,17 @@ namespace SIS.MvcFramework
             {
                 var cookie = httpRequest.Cookies.GetCookie(HttpSessionStorage.SessionCookieKey);
                 sessionId = cookie.Value;
-                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
+
+                if (this.httpSessionStorage.ContainsSession(sessionId))
+                {
+                    httpRequest.Session = this.httpSessionStorage.GetSession(sessionId);
+                }
             }
-            else
+
+            if (httpRequest.Session == null)
             {
                 sessionId = Guid.NewGuid().ToString();
-                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
+                httpRequest.Session = this.httpSessionStorage.GetSession(sessionId);
             }
 
             return sessionId;
@@ -123,9 +131,12 @@ namespace SIS.MvcFramework
 
         private void SetResponseSession(IHttpResponse httpResponse, string sessionId)
         {
-            if (!string.IsNullOrEmpty(sessionId))
+            IHttpSession responseSession = this.httpSessionStorage.GetSession(sessionId);
+
+            if (responseSession.IsNew)
             {
-                httpResponse.AddCookie(new HttpCookie(HttpSessionStorage.SessionCookieKey, sessionId));
+                responseSession.IsNew = false;
+                httpResponse.AddCookie(new HttpCookie(HttpSessionStorage.SessionCookieKey, responseSession.Id));
             }
         }
     }
