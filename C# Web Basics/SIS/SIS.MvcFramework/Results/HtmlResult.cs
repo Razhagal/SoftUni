@@ -7,7 +7,7 @@ namespace SIS.MvcFramework.Results
 {
     public class HtmlResult : HttpResponse
     {
-        public HtmlResult(string content, HttpResponseStatusCode responseStatusCode)
+        public HtmlResult(string content, HttpResponseStatusCode responseStatusCode = HttpResponseStatusCode.Ok)
             : base(responseStatusCode)
         {
             this.Headers.AddHeader(new HttpHeader(HttpHeader.ContentType, "text/html; charset=utf-8"));
