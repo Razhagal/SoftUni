@@ -10,6 +10,7 @@ using SIS.MvcFramework.Results;
 using SIS.MvcFramework.Routing;
 
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 
 namespace SIS.MvcFramework
@@ -94,10 +95,30 @@ namespace SIS.MvcFramework
         {
             if (!this.serverRoutingTable.Contains(httpRequest.RequestMethod, httpRequest.Path))
             {
-                return new TextResult($"Route with method {httpRequest.RequestMethod} and path \"{httpRequest.Path}\" not found.", HTTP.Enums.HttpResponseStatusCode.NotFound);
+                return this.ReturnIfResource(httpRequest);
             }
 
             return this.serverRoutingTable.Get(httpRequest.RequestMethod, httpRequest.Path).Invoke(httpRequest);
+        }
+
+        private IHttpResponse ReturnIfResource(IHttpRequest httpRequest)
+        {
+            string folderPrefix = "/../";
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            string resourceFolderPath = "Resources/";
+            string requestedResource = httpRequest.Path;
+
+            string fullPathToResource = assemblyLocation + folderPrefix + resourceFolderPath + requestedResource;
+
+            if (File.Exists(fullPathToResource))
+            {
+                byte[] content = File.ReadAllBytes(fullPathToResource);
+                return new InlineResourceResult(content, HttpResponseStatusCode.Ok);
+            }
+            else
+            {
+                return new TextResult($"Route with method {httpRequest.RequestMethod} and path \"{httpRequest.Path}\" not found.", HttpResponseStatusCode.NotFound);
+            }
         }
 
         private async Task PrepareResponse(IHttpResponse httpResponse)

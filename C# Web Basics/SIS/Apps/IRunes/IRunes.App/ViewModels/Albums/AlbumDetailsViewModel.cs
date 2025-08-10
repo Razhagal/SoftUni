@@ -1,5 +1,7 @@
 ﻿using IRunes.App.ViewModels.Tracks;
 
+using System.Collections.Generic;
+
 namespace IRunes.App.ViewModels.Albums
 {
     public class AlbumDetailsViewModel
