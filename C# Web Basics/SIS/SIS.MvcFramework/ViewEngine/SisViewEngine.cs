@@ -93,7 +93,7 @@ namespace AppViewCodeNamespace
             StringBuilder csharpCode = new StringBuilder();
             string[] supportedOperators = new string[] { "for", "if", "else" };
             Regex csharpCodeRegex = new Regex(@"[^\s<""\&]+", RegexOptions.Compiled);
-            int csharpCodeDepth = 0;
+            int csharpCodeDepth = 0; // If > 0, Inside CSharp Syntax
 
             foreach (var line in lines)
             {
@@ -129,15 +129,17 @@ namespace AppViewCodeNamespace
                 }
                 else if (supportedOperators.Any(x => currentLine.TrimStart().StartsWith("@" + x)))
                 {
+                    // @C#
                     int atSignLocation = currentLine.IndexOf("@");
                     string csharpLine = currentLine.Remove(atSignLocation, 1);
                     csharpCode.AppendLine(csharpLine);
                 }
                 else
                 {
+                    // HTML
                     if (currentLine.Contains("@RenderBody()"))
                     {
-                        string csharpLine = $"html.AppendLine(@\"{currentLine}\"";
+                        string csharpLine = $"html.AppendLine(@\"{currentLine}\");";
                         csharpCode.AppendLine(csharpLine);
                     }
                     else
