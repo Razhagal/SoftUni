@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="flexbox-lab.css">
+
+    <title>Flexbox - Lab</title>
+</head>
+<body>
+    <div class="exercise">
+        <h1>display: flex</h1>
+        <div>
+            <div class="flex-container">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>flex-direction</h1>
+        <div>
+            <h2>flex-direction: row; (default)</h2>
+            <div class="flex-container direction-row">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-direction: row-reverse;</h2>
+            <div class="flex-container direction-row-reverse">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-direction: column;</h2>
+            <div class="flex-container direction-column">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-direction: column-reverse;</h2>
+            <div class="flex-container direction-column-reverse">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>flex-wrap</h1>
+        <div>
+            <h2>flex-wrap: nowrap; (default)</h2>
+            <div class="flex-container nowrap">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-wrap: wrap;</h2>
+            <div class="flex-container wrap">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-wrap: wrap-reverse;</h2>
+            <div class="flex-container wrap-reverse">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>justify-content</h1>
+        <div>
+            <h2>justify-content: flex-start; (default)</h2>
+            <div class="flex-container flex-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>justify-content: center;</h2>
+            <div class="flex-container justify-center">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>justify-content: flex-end;</h2>
+            <div class="flex-container flex-end">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>justify-content: space-between;</h2>
+            <div class="flex-container space-between">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>justify-content: space-around;</h2>
+            <div class="flex-container space-around">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>justify-content: space-evenly;</h2>
+            <div class="flex-container space-evenly">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>align-items</h1>
+        <div>
+            <h2>align-items: stretch; (default)</h2>
+            <div class="flex-container with-height align-items-stretch">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-items: flex-start;</h2>
+            <div class="flex-container with-height align-items-flex-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-items: center;</h2>
+            <div class="flex-container with-height align-items-center">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-items: flex-end;</h2>
+            <div class="flex-container with-height align-items-flex-end">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-items: baseline;</h2>
+            <div class="flex-container with-height align-items-baseline">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>align-content</h1>
+        <div>
+            <h2>align-content: flex-start; (default)</h2>
+            <div class="flex-container with-height wrap align-content-flex-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-content: center;</h2>
+            <div class="flex-container with-height wrap align-content-center">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-content: flex-end;</h2>
+            <div class="flex-container with-height wrap align-content-flex-end">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-content: space-between;</h2>
+            <div class="flex-container with-height wrap align-content-space-between">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-content: space-around;</h2>
+            <div class="flex-container with-height wrap align-content-space-around">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>gap</h1>
+        <div>
+            <h2>gap-row (gap: 2em 0)</h2>
+            <div class="flex-container align-items-flex-start wrap gap-row">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>gap-column (gap: 0 2em)</h2>
+            <div class="flex-container align-items-flex-start wrap gap-column">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+        <div>
+            <h2>gap (gap: 2em)</h2>
+            <div class="flex-container align-items-flex-start wrap gap-all">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+                <div class="flex-item">7</div>
+                <div class="flex-item">8</div>
+                <div class="flex-item">9</div>
+                <div class="flex-item">10</div>
+                <div class="flex-item">11</div>
+                <div class="flex-item">12</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>flex-grow</h1>
+        <div>
+            <h2>flex-grow: 0; (default)</h2>
+            <div class="flex-container align-items-flex-start wrap flex-grow-default">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-grow: 1;</h2>
+            <div class="flex-container align-items-flex-start wrap flex-grow-all">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-grow: grow 2nd child only;</h2>
+            <div class="flex-container align-items-flex-start wrap flex-grow-second">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-grow: grow proportionally (1, 2, 3);</h2>
+            <div class="flex-container align-items-flex-start wrap flex-grow-proportionally">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>flex-shrink</h1>
+        <div>
+            <h2>flex-shrink: 1; (default)</h2>
+            <div class="flex-container align-items-flex-start flex-shrink-default">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-shrink: 0;</h2>
+            <div class="flex-container align-items-flex-start flex-shrink-zero">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-shrink: shrink 2nd child only;</h2>
+            <div class="flex-container align-items-flex-start flex-shrink-second">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>flex-basis</h1>
+        <div>
+            <h2>flex-basis: 5em;</h2>
+            <div class="flex-container flex-basis-5em">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-basis: 5em; flex-shrink: 0; (max-width: 5em)</h2>
+            <div class="flex-container flex-basis-5em flex-shrink-zero">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+        </div>
+        <div>
+            <h2>flex-basis: 5em; flex-grow: 1; (min-width: 5em)</h2>
+            <div class="flex-container flex-basis-5em flex-grow-all">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>align-self</h1>
+        <div>
+            <h2>align-self: flex-start;</h2>
+            <div class="flex-container align-items-flex-start align-self-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-self: center;</h2>
+            <div class="flex-container align-items-flex-start align-self-center">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-self: flex-end</h2>
+            <div class="flex-container align-items-flex-start align-self-end">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+            </div>
+        </div>
+        <div>
+            <h2>align-self: baseline;</h2>
+            <div class="flex-container align-items-flex-start align-self-baseline">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h1>order</h1>
+        <div>
+            <h2>Default Order</h2>
+            <div class="flex-container align-items-flex-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+        </div>
+        <div>
+            <h2>Custom Order</h2>
+            <div class="flex-container align-items-flex-start custom-order">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+        </div>
+        <div>
+    </div>
+</body>
+</html>

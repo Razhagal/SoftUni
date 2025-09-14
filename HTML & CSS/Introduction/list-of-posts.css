@@ -1,0 +1,11 @@
+span {
+    color: gray;
+}
+
+span .authors {
+    font-weight: bolder;
+}
+
+time {
+    font-style: italic;
+}

@@ -1,0 +1,13 @@
+header p span {
+    font-weight: bolder;
+}
+
+time {
+    font-style: oblique;
+}
+
+img {
+    width: 300px;
+    height: 400px;
+}
+

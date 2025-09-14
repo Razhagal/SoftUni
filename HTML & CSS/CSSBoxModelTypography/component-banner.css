@@ -1,0 +1,30 @@
+html {
+    font: 14px Arial, sans-serif;
+}
+
+section {
+    overflow: hidden;
+    position: relative;
+    background-image: url(BannerImage.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: max(30vh, 700px);
+}
+
+section header {
+    color: white;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 1em #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section header h1 {
+    font-size: 3em;
+}
+
+section header span {
+    font-size: 2em;
+}

@@ -1,0 +1,102 @@
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+    padding: 2em;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+.tree {
+    --border-size: 4px;
+    --border-color: #ddd;
+    --spacing-line-vertical: 0.2em;
+    --radius: 8px;
+}
+
+.tree li,
+.tree summary {
+    line-height: 1.2;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+.tree li {
+    padding: var(--spacing-line-vertical) 0;
+}
+
+.tree ul {
+    padding-top: var(--spacing-line-vertical);
+}
+
+.tree ul li {
+    border-left: var(--border-size) solid var(--border-color);
+    display: flex;
+    align-items: center;
+    margin-left: 0.25em;
+}
+
+.tree ul li:last-child {
+    border-color: transparent;
+}
+
+.tree ul li:before {
+    content: '';
+    display: block;
+    width: 1.4em;
+    height: 1.1em;
+    border: solid var(--border-color);
+    border-width: 0 0 var(--border-size) var(--border-size);
+    position: relative;
+    top: -0.5em;
+    left: calc(var(--border-size) * -0.91);
+    align-self: flex-start;
+    flex: 0 0 1.4em;
+    order: -2;
+}
+
+.tree ul li:last-child:before {
+    border-bottom-left-radius: 0.5em;
+}
+
+.tree summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tree summary::marker {
+    display: none;
+}
+
+.tree summary:focus {
+    outline: none;
+}
+
+.tree summary:focus-visible {
+    outline: 1px dotted #000;
+}
+
+.tree summary:before {
+    content: '+';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    width: 1.4em;
+    height: 1.4em;
+    font-size: 1rem;
+    color: #fff;
+    background: #696;
+    border-radius: 50%;
+    margin: 0 0.4em 0 -0.3em;
+    z-index: 1;
+}
+
+.tree details[open] > summary:before {
+    content: '-';
+}

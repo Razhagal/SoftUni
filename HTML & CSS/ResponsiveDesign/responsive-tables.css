@@ -1,0 +1,84 @@
+body {
+    background: #eee;
+    padding: 3em;
+}
+
+table {
+    background-color: #fff;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 2em;
+    overflow: hidden ;
+}
+
+table th,
+table td {
+    padding: 0.8em 1em;
+    text-align: left;
+}
+
+table[data-title] {
+    padding-top: 5rem;
+    position: relative;
+}
+
+table:has([data-title]):before {
+    display: flex;
+    content: attr(data-title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1em;
+    height: 5rem;
+    font-size: 2em;
+    align-items: center;
+    font-weight: bold;
+}
+
+table thead th {
+    background: #eee;
+}
+
+table th,
+table td {
+    border-top: 1px solid #ccc;
+}
+
+@media (width < 800px) {
+    table {
+        display: block;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody {
+        display: block;
+    }
+
+    table tbody tr {
+        display: block;
+        border: solid #000;
+        border-width: 2px 0 0 0;
+    }
+
+    table tbody td {
+        display: flex;
+        color: #666;
+    }
+
+    table tbody td:before {
+        display: block;
+        content: attr(data-title);
+        color: black;
+        font-weight: bold;
+        flex: 0 1 40%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

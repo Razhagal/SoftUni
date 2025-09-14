@@ -1,0 +1,21 @@
+p {
+    border: 2px solid black;
+    margin-bottom: 2em;
+}
+
+.first {
+    width: 300px;
+}
+
+.second {
+    width: 50%;
+}
+
+.third {
+    width: 50vw;
+}
+
+.fourth {
+    min-width: 100px;
+    max-width: 300px;
+}

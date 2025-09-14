@@ -1,0 +1,22 @@
+.buttons {
+    margin: 2em;
+}
+
+ul {
+    margin-top: 1em;
+}
+
+ul li {
+    background-color: rgb(224, 224, 224);
+    border-radius: 100%;
+    display: inline-block;
+}
+
+ul li span {
+    display: block;
+    text-align: center;
+    align-content: center;
+    width: 3em;
+    line-height: 3em;
+    font-size: 1.5em;
+}

@@ -1,0 +1,71 @@
+body {
+    font: 16px/1.5 Lato, sans-serif;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.content {
+    max-width: 800px;
+}
+
+.content .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.cards li {
+    list-style-type: none;
+    display: block;
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: -0.2em 0.2em 0em 0 rgba(0, 0, 0, 0.1);
+    padding: 1.5em 2em;
+    padding-right: 3em;
+    flex-grow: 1;
+    max-width: calc(50% - (1em / 2));
+    position: relative;
+}
+
+.cards li .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: orange;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    box-shadow: -0.2em 0.2em 0em 0 rgba(0, 0, 0, 0.1);
+}
+
+.badge span {
+    color: white;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+p {
+    font-size: 0.9em;
+}
+
+@media (width <= 800px) {
+    .content .cards {
+        flex-direction: column;
+    }
+    
+    .cards li {
+        max-width: 100%;
+    }
+}

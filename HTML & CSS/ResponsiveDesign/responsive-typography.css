@@ -1,0 +1,136 @@
+body {
+    background: #eee;
+    padding: 2em;
+}
+
+.content {
+    background: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1.5em 0 rgb(0, 0, 0, 0.2);
+    padding: 2em;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.content > * + * {
+    border-top: 2px solid #bbb;
+    margin-top: 2em;
+    padding-top: 1.5em;
+}
+
+h1 {
+	font-size: 2.4rem;
+}
+
+h2 {
+	font-size: 2.0rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.4rem;
+}
+
+h5 {
+	font-size: 1.2rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+.paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 1.5em;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.main-content ul {
+    margin: 0.5em 0 0.5em 1.5em;
+}
+
+.main-content > ul,
+.main-content > ol {
+    margin-left: 3em;
+}
+
+.main-content ul {
+    list-style-type: square;
+}
+
+.main-content ul ul {
+    list-style-type: disc;
+}
+
+.main-content ul ul ul {
+    list-style-type: circle;
+}
+
+article table {
+    border: 1px solid #bbb;
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: fixed;
+    width: 100%;
+}
+
+article table thead {
+    background-color: #bbb;
+}
+
+article table th,
+article table td {
+    padding: 0.5em 1em;
+}
+
+article table tr + tr {
+    border-top: 1px solid #bbb;
+}
+
+article table tr td + td {
+    border-left: 1px solid #bbb;
+}
+
+article table tbody tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+article .quotes {
+    border-left: 2px solid #bbb;
+    padding: 1em 0 1em 2em;
+    margin: 0 2em;
+}
+
+article .quotes p {
+    font-style: italic;
+}
+
+article .quotes p + p {
+    margin-top: 1em;
+}
+
+article .quotes .author {
+    text-align: right;
+}
+
+@media (width <= 800px) {
+    body {
+        font: 12px/1.5 Lato, sans-serif;
+    }
+}
+
+@media (width <= 600px) {
+    body {
+        font: 10px/1.5 Lato, sans-serif;
+    }
+}

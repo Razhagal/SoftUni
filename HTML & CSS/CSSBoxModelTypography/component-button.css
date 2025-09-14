@@ -1,0 +1,57 @@
+html {
+    font: 14px Arial, sans-serif;
+}
+
+body {
+    padding-left: 2em;
+}
+
+body, button {
+    font: inherit;
+}
+
+div {
+    margin-top: 2em;
+}
+
+h2 {
+    margin-bottom: 0.7em;
+}
+
+.button {
+    display: inline-block;
+    background-color: lightgray;
+    color: rgb(41, 41, 41);
+    border: 1px  solid rgb(194, 193, 193);
+    border-radius: 0.3em;
+    padding: 1em 1.5em;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button + .button {
+    margin-left: 0.5em;
+}
+
+.first {
+    background-color: orange;
+}
+
+.second {
+    background-color: lightyellow;
+}
+
+.outline {
+    background-color: white;
+}
+
+.button:hover {
+    color: white;
+    background-color: black;
+}
+
+
+.button:active {
+    background-color: #060;
+}

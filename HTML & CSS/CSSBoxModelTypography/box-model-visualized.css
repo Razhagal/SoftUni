@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;;
+}
+
+.main {
+    width: 20vw;
+    margin: 1em auto;
+}
+
+.main div {
+    margin: 0 1em 1em 1em;
+    border: 1px dashed lightgray;
+}
+
+.main div:before {
+    display: block;
+    height: 1em;
+    align-content: center;
+    padding-left: 0.4em;
+}
+
+.margin {
+    background: orange;
+}
+
+.margin:before {
+    content: 'margin';
+}
+
+.border {
+    background: rgb(245, 204, 143);
+}
+
+.border:before {
+    content: 'border';
+}
+
+.padding {
+    background: lightgreen;
+}
+
+.padding:before {
+    content: 'padding';
+}
+
+.content {
+    text-align: center;
+    background-color: lightblue;
+    padding: 1em;
+}

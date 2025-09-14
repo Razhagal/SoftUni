@@ -1,0 +1,19 @@
+div {
+    box-sizing: border-box;
+    border: 2px solid black;
+    margin-bottom: 50px;
+    width: 350px;
+    height: 200px;
+}
+
+.first {
+    overflow: visible;
+}
+
+.second {
+    overflow: hidden;
+}
+
+.third {
+    overflow: scroll;
+}

@@ -1,0 +1,81 @@
+html {
+    font: 12px/1.5 Lato, sans-serif;
+}
+
+body {
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.container {
+    max-width: 900px;
+}
+
+article {
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2em;
+    padding: 2em;
+}
+
+article header {
+    padding-bottom: 0.5em;
+}
+
+article hgroup h1,
+article hgroup h2 {
+    line-height: 1;
+}
+
+article hgroup h1 {
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 0.4rem 0;
+    opacity: 0.8;
+}
+
+article hgroup h2 {
+    opacity: 0.5;
+}
+
+article main {
+    margin-bottom: 1.5em;
+}
+
+article main p {
+    opacity: 0.6;
+}
+
+article .media {
+    flex: 0 0 30%;
+    overflow: hidden;
+    border-radius: 0.3em;
+}
+
+.button {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    background: rebeccapurple;
+    padding: 0.5em 1.3em;
+    border-radius: 0.3em;
+}
+
+.button + .button {
+    margin-left: 1em;
+}
+
+.button.secondary {
+    background: #eee;
+    color: #444
+}
+
+.media:empty {
+    background: #eee;
+    border: 1px solid #ccc;
+}

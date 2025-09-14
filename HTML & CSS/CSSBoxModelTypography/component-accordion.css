@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    margin: 2em auto;
+    max-width: 700px;
+}
+
+.main {
+    border: 1px solid gray;
+}
+
+.main details+details {
+    border-top: 1px solid gray;
+}
+
+details {
+    padding: 1em 1.5em;
+}
+
+details summary:before {
+    display: inline-block;
+    content: '>';
+    margin-right: 0.5em;
+}
+
+details[open] summary {
+    padding-bottom: 1em;
+}
+
+details[open] summary:before {
+    content: '^';
+    transform: rotate(180deg);
+}
+
+summary {
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+p {
+    padding-bottom: 1em;
+}
