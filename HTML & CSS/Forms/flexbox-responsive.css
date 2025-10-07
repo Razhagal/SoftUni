@@ -1,0 +1,77 @@
+body {
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2em;
+}
+
+form {
+    background: white;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+    padding: 1em;
+    gap: 1em;
+}
+
+fieldset > * {
+    display: inline-block;
+    width: 33%;
+}
+
+input[type='text'] {
+    flex: 1 1 0;
+}
+
+input[type='email'] {
+    flex: 2 1 0;
+}
+
+input:is([type='text'], [type='email']) {
+    border: none;
+    border-radius: 0.3em;
+    background-color: #ddd;
+    padding: 1rem 1.5rem;
+}
+
+input[type='submit'] {
+    flex: 1 1 0;
+    border: none;
+    border-radius: 0.3em;
+    background-color: darkorange;
+    color: white;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    font-size: 1.1em;
+
+    &:hover {
+        background-color: rgb(160, 88, 0);
+        cursor: pointer;
+    }
+}
+
+@media (width < 600px) {
+
+    input[type='submit'] {
+        display: block;
+        width: 100%;
+        flex: 0 0 auto;
+    }
+}
+
+@media (width < 400px) {
+    input:is([type='text'], [type='email']) {
+        display: block;
+        width: 100%;
+        flex: 0 0 auto;
+    }
+}

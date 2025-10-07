@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <title>Contact form</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <p class="contact-title">Contact</p>
+
+            <div class="input-row">
+                <input type="text" name="input-name" id="input-name" placeholder=" " required />
+                <label for="input-name">You Name</label>
+                <span class="helper">First and Last name is enough</span>
+            </div>
+            
+            <div class="input-row">
+                <input type="email" name="input-email" id="input-email" placeholder=" " required />
+                <label for="input-email">Email</label>
+                <span class="helper">example: john.doe@gmail.com</span>
+            </div>
+            
+            <div class="input-row">
+                <input type="text" name="input-subject" id="input-subject" placeholder=" " required />
+                <label for="input-subject">Subject</label>
+                <span class="helper">What is this about?</span>
+            </div>
+
+            <div class="input-row">
+                <textarea name="input-message" id="input-message" placeholder=" "></textarea>
+                <label for="input-message">Message</label>
+                <span class="helper">Let us know what you need</span>
+            </div>
+
+            <input type="submit" value="Send">
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="icons-and-state.css">
+
+    <title>Login</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <p>Login</p>
+            
+            <div class="input-row">
+                <span class="label">
+                    <label for="input-email" name="input-email">Email</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input type="email" id="input-email" required />
+                <span class="helper">example: konstantin.dankov@gmail.com</span>
+            </div>
+            
+            <div class="input-row">
+                <span class="label">
+                    <label for="input-password" name="input-password">Password</label>
+                    <i class="fa-solid fa-key"></i>
+                </span>
+                <input type="password" id="input-password" required />
+                <span class="helper">minimum 6 characters, letters and numbers, at least 1 special character</span>
+            </div>
+            
+            <input type="submit" value="Login" />
+        </fieldset>
+    </form>
+</body>
+</html>
