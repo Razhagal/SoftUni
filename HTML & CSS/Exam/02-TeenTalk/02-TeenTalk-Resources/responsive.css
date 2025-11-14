@@ -1,0 +1,69 @@
+@media (width <= 600px) {
+    .home-navbar {
+        padding-left: 2rem;
+        padding-right: 1.5rem;
+    }
+    
+    .Anchor {
+        font-size: 0.9em;
+    }
+
+    .button {
+        padding-inline: 1rem;
+    }
+
+    .home-features {
+        height: auto;
+    }
+
+    .home-heading-container {
+        width: 100%;
+    }
+
+    .home-cards-container {
+        flex-direction: column;
+        align-items: center;
+
+        & > * {
+            width: 100%;
+        }
+
+        .home-image2,
+        .home-image3,
+        .home-image4 {
+            width: 80%;
+            height: auto;
+        }
+    }
+
+    .home-stats {
+        width: 100%;
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+      
+    }
+
+    .home-hero {
+        flex-direction: column;
+
+        .home-hero-text-container {
+            width: 100%;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 0;
+            margin-top: 1rem;
+            padding: 0.2rem;
+            order: 1;
+
+            .home-cta-btn2 {
+                align-self: auto;
+            }
+        }
+
+        .home-image1 {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

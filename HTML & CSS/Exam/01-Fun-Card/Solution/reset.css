@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 Space Mono, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
