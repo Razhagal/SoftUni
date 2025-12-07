@@ -2,9 +2,11 @@ const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
-
+const interval = 300;
+const timeout = 8000;
 const DEBUG = false;
 const slowMo = 500;
+
 
 const mockData = {
   list: [
@@ -33,7 +35,7 @@ let page;
 
 describe('E2E tests', function () {
   // Setup
-  this.timeout(DEBUG ? 120000 : 7000);
+  this.timeout(DEBUG ? 120000 : timeout);
   before(
     async () =>
       (browser = await chromium.launch(
@@ -59,9 +61,9 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('#refresh');
+      await page.waitForSelector('#refresh', { timeout: interval });
 
-      await page.click('input[value="Refresh"]');
+      await page.click('input[value="Refresh"]', { timeout: interval });
 
       const post = await page.$$eval(`textarea`, (t) => t.map((s) => s.value));
 
@@ -84,7 +86,7 @@ describe('E2E tests', function () {
 
       const [request] = await Promise.all([
         onRequest(),
-        page.click('input[value="Send"]'),
+        page.click('input[value="Send"]', { timeout: interval }),
       ]);
 
       const postData = JSON.parse(request.postData());

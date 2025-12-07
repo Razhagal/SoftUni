@@ -3,6 +3,8 @@ const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 
+const interval = 300;
+const timeout = 8000;
 const DEBUG = false;
 const slowMo = 500;
 
@@ -44,7 +46,7 @@ let page;
 
 describe('E2E tests', function () {
   // Setup
-  this.timeout(DEBUG ? 120000 : 7000);
+  this.timeout(DEBUG ? 120000 : timeout);
   before(
     async () =>
       (browser = await chromium.launch(
@@ -70,7 +72,7 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('#main');
+      await page.waitForSelector('#main' , { timeout: interval });
 
       const post = await page.$$eval(`.accordion`, (t) =>
         t.map((s) => s.textContent)
@@ -88,7 +90,7 @@ describe('E2E tests', function () {
       get2(accordionInfo);
 
       await page.goto(host);
-      await page.waitForSelector('.accordion');
+      await page.waitForSelector('.accordion', { timeout: interval });
 
       const post = await page.$$eval(`.accordion`, (t) =>
         t.map((s) => s.textContent)
@@ -96,7 +98,7 @@ describe('E2E tests', function () {
 
       await page.click(
         `.accordion:has-text("${accordionInfo.title}") >> button`
-      );
+        , { timeout: interval });
 
       const info = await page.$$eval(`.accordion .extra p`, (t) =>
         t.map((s) => s.textContent)
@@ -115,11 +117,11 @@ describe('E2E tests', function () {
       get2(accordionInfo);
 
       await page.goto(host);
-      await page.waitForSelector('.accordion');
+      await page.waitForSelector('.accordion' , { timeout: interval });
 
       await page.click(
         `.accordion:has-text("${accordionInfo.title}") >> button`
-      );
+        , { timeout: interval });
 
       const info = await page.$$eval(
         `.accordion:has-text("${accordionInfo.title}") .extra`,

@@ -2,30 +2,31 @@ const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
-
+const interval = 300;
+const timeout = 8000;
 const DEBUG = false;
 const slowMo = 500;
 
 const mockData = {
-  blog: [
-    {
-      body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis maiores eligendi quos quidem ex numquam hic. Eos quos similique voluptates accusamus quae voluptas magni ad a ipsum, quia enim debitis cumque quibusdam exercitationem architecto sint nostrum dolorum dolor repudiandae nulla deserunt, dolorem itaque!',
-      id: '1001',
-      title: 'Unit Testing And Modules',
+  blog: {
+    "-MSbypx-13fHPDyzNRtf": {
+      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis maiores eligendi quos quidem ex numquam hic. Eos quos similique voluptates accusamus quae voluptas magni ad a ipsum, quia enim debitis cumque quibusdam exercitationem architecto sint nostrum dolorum dolor repudiandae nulla deserunt, dolorem itaque!",
+      id: "-MSbypx-13fHPDyzNRtf",
+      title: "Unit Testing And Modules",
     },
-  ],
-  comments: [
-    {
-      id: '-MSgyQMjBNfYjW2m6r97',
-      postId: '1001',
-      text: 'A very interesting post!',
+  },
+  comments: {
+    "-MSgyQMjBNfYjW2m6r97": {
+      id: "-MSgyQMjBNfYjW2m6r97",
+      postId: "-MSbypx-13fHPDyzNRtf",
+      text: "A very interesting post!",
     },
-    {
-      id: '-MSgySbWEFw3rhCfIIns',
-      postId: '1001',
-      text: 'Unit Testing is a useful testing technique in programming.',
+    "-MSgySbWEFw3rhCfIIns": {
+      id: "-MSgySbWEFw3rhCfIIns",
+      postId: "-MSbypx-13fHPDyzNRtf",
+      text: "Unit Testing is a useful testing technique in programming.",
     },
-  ],
+  },
 };
 
 const endpoints = {
@@ -39,7 +40,7 @@ let page;
 
 describe('E2E tests', function () {
   // Setup
-  this.timeout(DEBUG ? 120000 : 7000);
+  this.timeout(DEBUG ? 120000 : timeout);
   before(
     async () =>
       (browser = await chromium.launch(
@@ -64,9 +65,9 @@ describe('E2E tests', function () {
       const isCalled = get().isHandled;
 
       await page.goto(host);
-      await page.waitForSelector('#btnLoadPosts');
-      await page.click('text=Load Posts');
-      await page.waitForSelector('#posts');
+      await page.waitForSelector('#btnLoadPosts', { timeout: interval });
+      await page.click('text=Load Posts', { timeout: interval });
+      await page.waitForSelector('#posts' , { timeout: interval });
 
       expect(isCalled()).to.be.true;
     });
@@ -77,13 +78,13 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('#btnLoadPosts');
-      await page.click('text=Load Posts');
+      await page.waitForSelector('#btnLoadPosts', { timeout: interval });
+      await page.click('text=Load Posts', { timeout: interval });
 
       const post = await page.$$eval(`#posts`, (t) =>
         t.map((s) => s.textContent)
       );
-      expect(post.length).to.equal(data.length);
+      expect(post.length).to.equal(Object.keys(data).length);
     });
 
     it('Check post title', async () => {
@@ -97,16 +98,15 @@ describe('E2E tests', function () {
       get2(comment);
 
       await page.goto(host);
-      await page.waitForSelector('#btnLoadPosts');
-      await page.click('text=Load Posts');
+      await page.waitForSelector('#btnLoadPosts', { timeout: interval });
+      await page.click('text=Load Posts', { timeout: interval });
 
-      await page.waitForSelector('#btnViewPost');
-      await page.click('text=View');
+      await page.waitForSelector('#btnViewPost', { timeout: interval });
+      await page.click('text=View', { timeout: interval });
 
-      const post = await page.$$eval(`#post-title`, (t) =>
-        t.map((s) => s.textContent)
-      );
-      expect(post[0]).to.equal(data[0].title);
+      const postTitle = await page.$eval(`#post-title`, (el) => el.textContent);
+      const expectedTitle = data["-MSbypx-13fHPDyzNRtf"].title;
+      expect(postTitle).to.equal(expectedTitle);
     });
 
     it('Check post body', async () => {
@@ -119,16 +119,15 @@ describe('E2E tests', function () {
 
       get2(comment);
       await page.goto(host);
-      await page.waitForSelector('#btnLoadPosts');
-      await page.click('text=Load Posts');
+      await page.waitForSelector('#btnLoadPosts', { timeout: interval });
+      await page.click('text=Load Posts', { timeout: interval });
 
-      await page.waitForSelector('#btnViewPost');
-      await page.click('text=View');
+      await page.waitForSelector('#btnViewPost', { timeout: interval });
+      await page.click('text=View', { timeout: interval });
 
-      const post = await page.$$eval(`#post-body`, (t) =>
-        t.map((s) => s.textContent)
-      );
-      expect(post[0]).to.equal(data[0].body);
+      const postBody = await page.$eval(`#post-body`, (el) => el.textContent);
+      const expectedBody = data["-MSbypx-13fHPDyzNRtf"].body;
+      expect(postBody).to.equal(expectedBody);
     });
   });
 });
@@ -136,6 +135,14 @@ describe('E2E tests', function () {
 async function setupContext(context) {
   // Catalog and Details
   await handleContext(context, endpoints.blog, { get: mockData.blog });
+
+  await handleContext(
+    context,
+    '/jsonstore/blog/posts/-MSbypx-13fHPDyzNRtf',
+    { get: mockData.blog["-MSbypx-13fHPDyzNRtf"] }
+  );
+
+
   await handleContext(context, endpoints.comments('1001'), {
     get: mockData.comments[0],
   });

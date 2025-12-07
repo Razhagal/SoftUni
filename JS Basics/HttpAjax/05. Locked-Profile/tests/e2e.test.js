@@ -3,6 +3,8 @@ const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 
+const interval = 300;
+const timeout = 8000;
 const DEBUG = false;
 const slowMo = 500;
 
@@ -27,7 +29,7 @@ let page;
 
 describe('E2E tests', function () {
   // Setup
-  this.timeout(DEBUG ? 120000 : 7000);
+  this.timeout(DEBUG ? 120000 : timeout);
   before(
     async () =>
       (browser = await chromium.launch(
@@ -53,7 +55,7 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('.profile');
+      await page.waitForSelector('.profile' , { timeout: interval });
 
       const post = await page.$$eval(`.profile`, (t) =>
         t.map((s) => s.textContent)
@@ -67,10 +69,10 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('.profile');
+      await page.waitForSelector('.profile' , { timeout: interval });
 
-      await page.click('input[value="unlock"]');
-      await page.click('text=Show more');
+      await page.click('input[value="unlock"]' , { timeout: interval });
+      await page.click('text=Show more' , { timeout: interval });
 
       const post = await page.$$eval(`input[name="user1Username"]`, (t) =>
         t.map((s) => s.value)
@@ -85,7 +87,7 @@ describe('E2E tests', function () {
       get(data);
 
       await page.goto(host);
-      await page.waitForSelector('.profile');
+      await page.waitForSelector('.profile' , { timeout: interval });
 
       const post = await page.$$eval(`input:checked`, (t) =>
         t.map((s) => s.value)
@@ -99,10 +101,10 @@ describe('E2E tests', function () {
       get(data);
     
       await page.goto(host);
-      await page.waitForSelector('.profile');
+      await page.waitForSelector('.profile' , { timeout: interval });
     
-      await page.click('input[value="unlock"]');
-      await page.click('text=Show more');
+      await page.click('input[value="unlock"]', { timeout: interval });
+      await page.click('text=Show more', { timeout: interval });
     
       const emailValue = await page.$eval('input[type="email"]', (input) => input.value);
       const numberValue = await page.$eval('input[type="number"]', (input) => input.value);
@@ -110,6 +112,7 @@ describe('E2E tests', function () {
       expect(emailValue).to.equal(data[0].email);
       expect(numberValue).to.equal(`${data[0].age}`);
     });
+    
   });
 });
 
